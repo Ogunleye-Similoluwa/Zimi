@@ -3,11 +3,13 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/song.dart';
 import '../models/timed_lyrics.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class LyricsService {
   final String _youtubeBaseUrl = 'https://youtube.googleapis.com/youtube/v3';
   final String _lyricsBaseUrl = 'https://api.lyrics.ovh/v1';
-  final String _apiKey = 'AIzaSyCoxJ2v2eGXgxVjjnWiYB4YD1OLyPV2AmQ';
+  final String _apiKey = dotenv.env['YOUTUBE_API_KEY']!;
+  final String _geniusKey = dotenv.env['GENIUS_API_KEY']!;
 
   Future<List<Song>> searchSongs(String query) async {
     try {
@@ -78,7 +80,7 @@ class LyricsService {
       }
       
       // Fallback to regular lyrics
-      final geniusClient = genius.Genius(accessToken: "_DLFHwVQwXTmGGxDpxwEGB1sycE68wM8xwTKVdxYxKNQBMdPIBBlqpl1V2Jhis-O");
+      final geniusClient = genius.Genius(accessToken: _geniusKey);
 
     try {
       // First try lyrics.ovh
@@ -129,7 +131,7 @@ class LyricsService {
 
 
    Future<String> getLyrics1(String artist, String title) async {
-    final geniusClient = genius.Genius(accessToken: "_DLFHwVQwXTmGGxDpxwEGB1sycE68wM8xwTKVdxYxKNQBMdPIBBlqpl1V2Jhis-O");
+    final geniusClient = genius.Genius(accessToken: _geniusKey);
 
     try {
       // First try lyrics.ovh

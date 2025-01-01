@@ -20,18 +20,21 @@ import 'adapters/song_adapter.dart';
 import 'adapters/playlist_adapter.dart';
 import '../screens/lyrics_screen.dart';
 import 'services/theme_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
 
-   await ACRCloud.setUp(
-      ACRCloudConfig(
-        "5b79a16696a611d361f263bdfd6968d4",
-        "6gY72eAQDuvwH1ahnypDUq3sSdj5f7xZlfWmad76",
-        "identify-eu-west-1.acrcloud.com"
-      )
-    );
+  await ACRCloud.setUp(
+    ACRCloudConfig(
+      dotenv.env['ACR_ACCESS_KEY']!,
+      dotenv.env['ACR_SECRET_KEY']!,
+      dotenv.env['ACR_HOST']!
+    )
+  );
 
   // Initialize Hive and register adapters
   await Hive.initFlutter();

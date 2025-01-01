@@ -53,7 +53,21 @@ Zimi is a sophisticated music recognition and lyrics app that combines beautiful
 
 ## 📱 Screenshots
 
-[Add your screenshots here]
+<p align="center">
+  <img src="screenshots/home_screen.png" width="200" alt="Home Screen">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/lyrics_screen.png" width="200" alt="Lyrics Screen">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/library_screen.png" width="200" alt="Library Screen">
+</p>
+
+<p align="center">
+  <img src="screenshots/search_screen.png" width="200" alt="Search Screen">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/playlist_screen.png" width="200" alt="Playlist Screen">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/recognition.png" width="200" alt="Recognition">
+</p>
 
 ## 🚀 Getting Started
 
