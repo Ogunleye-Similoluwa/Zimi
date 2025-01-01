@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         if (state is SongRecognized) {
           setState(() => _isListening = false);
           _micController.reverse();
-          Navigator.of(context).pushReplacement(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => LyricsScreen(song: state.song),
             ),
